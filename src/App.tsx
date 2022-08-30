@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import classes from "./App.module.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className={classes.main}>
+      <header>
+        <h1>
+          Join
+          <br />
+          Hustle
+          <br />
+          Control
+        </h1>
+        <span>
+          If you want to control the Hustle, meet hustlers, track goals and
+          analyze your life circumstances with a realistic approach join us
+        </span>
       </header>
-    </div>
+      <button>Join Us</button>
+      <footer>
+        Already have an account? <span>Log in</span>
+      </footer>
+    </main>
   );
 }
 
