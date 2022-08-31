@@ -1,9 +1,27 @@
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "MyWebFont-bold";
+  src: url("FontsFree-Net-SFCompactText-Heavy.ttf") format("truetype");
+}
+@font-face {
+  font-family: "MyWebFont-regular";
+  src: url("FontsFree-Net-SFCompactText-Regular.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
-
-* {
   box-sizing: border-box;
+  font-family: MyWebFont-regular;
+  overflow: hidden;
+  z-index: -2;
+}
+#root {
+  background-color: black;
+  overflow: hidden;
 }

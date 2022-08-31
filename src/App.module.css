@@ -1,40 +1,192 @@
 .main {
   color: white;
-  background-color: black;
-  min-height: 100vh;
+  background-color: transparent;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  max-width: 850px;
+  margin: auto;
+  padding: 1.5em;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.main * {
-  width: 90%;
+.planet {
+  z-index: 1;
+}
+
+.planet img {
+  position: absolute;
+  top: calc(50% - 23em);
+  left: 45%;
+  width: 18em;
+  will-change: transform;
+  transition-timing-function: linear;
+  opacity: 0;
+}
+
+.planet img:nth-of-type(1) {
+  animation: planet1 linear 15s infinite, planet-animation 30s linear infinite;
+}
+.planet img:nth-of-type(2) {
+  animation: planet2 linear 15s infinite, planet-animation 30s linear infinite;
+}
+.planet img:nth-of-type(3) {
+  animation: planet3 linear 15s infinite, planet-animation 30s linear infinite;
+}
+
+@keyframes planet-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes planet1 {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes planet2 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0;
+  }
+}
+@keyframes planet3 {
+  33% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.right-circle {
+  position: absolute;
+  top: 40vh;
+  left: 100%;
+  height: 40vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 250px 10px rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+.left-circle {
+  position: absolute;
+  top: 50vh;
+  left: -40vw;
+  height: 40vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255, 1);
+  box-shadow: -2px -1px 250px 10px rgba(255, 255, 255, 0.8);
+  z-index: 10;
 }
 
 .main header {
   margin: auto;
+  margin-bottom: 5em;
+  z-index: 100;
+  min-width: 600px;
 }
 
 .main header h1 {
   font-size: 5em;
   line-height: 90%;
-  margin-right: 0 !important;
-  margin-bottom: 0.3em;
+  margin-top: auto;
+  z-index: 100;
+  margin-bottom: 0.6em;
 }
 
-.main button {
-  background-color: black;
-  color: white;
-  font-size: 1em;
-  border: 1px solid white;
-  border-radius: 1em;
-  height: 3.5em;
-  width: 20em;
+.main header p {
+  width: 400px;
+  font-family: MyWebFont-regular;
+  z-index: 100;
+}
+
+.main a {
+  z-index: 100;
+  width: fit-content;
+}
+
+.main a img {
+  width: 15em;
+  z-index: 100;
+  margin: 2em 0;
 }
 
 .main footer {
   text-align: center;
   margin-top: auto;
+  z-index: 100;
   height: 3em;
+}
+
+@media screen and (min-width: 480px) {
+  .planet img {
+    width: 25em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .planet img {
+    left: 50%;
+  }
+  .main header h1 {
+    font-size: 6em;
+    letter-spacing: 0.07em;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .main header p {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .main header h1 {
+    font-size: 4em;
+  }
+}
+
+@keyframes planet-fade {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  33% {
+    transform: translate(calc(var(--size) / 1.5), 0);
+  }
+
+  66% {
+    transform: translate(0, calc(var(--size) / 1.5));
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
