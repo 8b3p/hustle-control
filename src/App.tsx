@@ -24,7 +24,7 @@ function App() {
           </h1>
           <p>
             If you want to control the Hustle, meet hustlers, track goals and
-            analyze your life circumstances with a realistic approach, join us!
+            analyze your life with a realistic approach, join us!
           </p>
         </header>
         <a href='https://apps.apple.com/tr/app/hustlecontrol/id1641096356'>
@@ -33,7 +33,7 @@ function App() {
             alt='download from AppStore button'
           />
         </a>
-        <footer>Telif Hakki © 2022 HustleControl - Tum Haklari Saklidir</footer>
+        <footer>COPYRIGHT © 2022 HUSTLECONTROL - ALL RIGHTS RESERVED.</footer>
       </main>
     </>
   );
