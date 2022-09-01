@@ -1,9 +1,13 @@
+.container {
+   overflow: hidden;
+}
+
 .main {
   color: white;
   background-color: transparent;
   height: 100vh;
   width: 100vw;
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;

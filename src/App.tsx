@@ -3,7 +3,7 @@ import classes from "./App.module.css";
 
 function App() {
   return (
-    <>
+    <div className={classes.container}>
       <div className={classes.planet}>
         <div className={classes.animatedwrapper}>
           <img src='./kmainwookopya1.png' alt='planet 1' />
