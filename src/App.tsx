@@ -1,19 +1,19 @@
 import React from "react";
-import classes from "./App.module.css";
+import "./App.css";
 
 function App() {
   return (
-    <div className={classes.container}>
-      <div className={classes.planet}>
-        <div className={classes.animatedwrapper}>
+    <div className='container'>
+      <div className='planet'>
+        <div className='animatedwrapper'>
           <img src='./kmainwookopya1.png' alt='planet 1' />
           <img src='./kmdarkerwoo1kopya1.png' alt='planet 2' />
           <img src='./kmlowestwookopya1.png' alt='planet 3' />
         </div>
       </div>
-      <div className={classes["right-circle"]}></div>
-      <div className={classes["left-circle"]}></div>
-      <main className={classes.main}>
+      <div className='right-circle'></div>
+      <div className='left-circle'></div>
+      <main className='main'>
         <header>
           <h1>
             Join
@@ -35,7 +35,7 @@ function App() {
         </a>
         <footer>COPYRIGHT © 2022 HUSTLECONTROL - ALL RIGHTS RESERVED.</footer>
       </main>
-    </>
+    </div>
   );
 }
 
