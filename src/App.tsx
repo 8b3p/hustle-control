@@ -5,14 +5,20 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const fontsReady = (document as any).fonts
-      ? (document as any).fonts.ready
-      : Promise.resolve();
+    const fonts = (document as any).fonts;
+    const fontPromises = fonts
+      ? [
+          fonts.ready,
+          fonts.load("1em MyWebFont-bold"),
+          fonts.load("1em MyWebFont-regular"),
+        ]
+      : [];
 
     const imageUrls = [
       "./kmainwookopya1.png",
       "./kmdarkerwoo1kopya1.png",
       "./kmlowestwookopya1.png",
+      "https://miro.medium.com/max/600/1*xqT83bMEz92IBYxS9UQNow.png",
     ];
 
     const imagePromises = imageUrls.map(
@@ -29,13 +35,18 @@ function App() {
         })
     );
 
-    Promise.all([fontsReady, ...imagePromises]).then(() => {
+    Promise.all([...fontPromises, ...imagePromises]).then(() => {
       setIsLoaded(true);
     });
   }, []);
 
   if (!isLoaded) {
-    return <div className="loading">Loading...</div>;
+    return (
+      <div className="loading">
+        <div className="spinner" />
+        <div>Loading...</div>
+      </div>
+    );
   }
 
   return (
