@@ -3,6 +3,7 @@ import "./App.css";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
     const fonts = (document as any).fonts;
@@ -40,17 +41,23 @@ function App() {
     });
   }, []);
 
-  if (!isLoaded) {
-    return (
-      <div className="loading">
-        <div className="spinner" />
-        <div>Loading...</div>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (isLoaded) {
+      const timer = setTimeout(() => setShowLoading(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoaded]);
 
   return (
-    <div className="container">
+    <>
+      {showLoading && (
+        <div className={`loading ${isLoaded ? "fade-out" : ""}`}>
+          <div className="spinner" />
+          <div>Loading...</div>
+        </div>
+      )}
+      {isLoaded && (
+        <div className="container fade-slide-in">
       <div className="planet">
         <div className="animatedwrapper">
           <img src="./kmainwookopya1.png" alt="planet 1" />
@@ -83,6 +90,8 @@ function App() {
         <footer>COPYRIGHT © 2022 HUSTLECONTROL - ALL RIGHTS RESERVED.</footer>
       </main>
     </div>
+      )}
+    </>
   );
 }
 
